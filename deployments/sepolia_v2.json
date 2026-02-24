@@ -1,0 +1,6 @@
+{
+  "MyToken": "0x7d152361B1b273128bA5823550085f0abfD64Ad3",
+  "TokenFaucet": "0x841B719B6c48fDC436c63dbcF01a1896210C67b0",
+  "notes": "v2 faucet (pause/rescue + ops controls)",
+  "network": "sepolia"
+}

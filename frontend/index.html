@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Token Faucet</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; max-width: 720px; margin: 40px auto; padding: 0 16px; }
+      button { padding: 10px 14px; border-radius: 10px; border: 1px solid #ccc; cursor: pointer; }
+      .row { margin: 12px 0; }
+      code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+      .log { background: #0b1020; color: #d7e0ff; padding: 12px; border-radius: 12px; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body>
+    <h1>Token Faucet (Localhost)</h1>
+
+    <div class="row">
+      <button id="connectBtn">Connect MetaMask</button>
+      <button id="claimBtn" disabled>Claim</button>
+    </div>
+
+    <div class="row">Wallet: <code id="wallet">Not connected</code></div>
+    <div class="row">Network: <code id="network">Unknown</code></div>
+    <div class="row">Faucet: <code id="faucet"></code></div>
+
+    <h3>Status</h3>
+    <div id="status" class="log">Ready.</div>
+
+    <script type="module">
+      import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.13.4/+esm";
+
+      // 👇 Paste your deployed faucet address here (from deployed.json)
+      const FAUCET_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
+      const FAUCET_ABI = [
+        "function claim() external",
+        "function cooldown() view returns (uint256)",
+        "function lastClaimAt(address) view returns (uint256)",
+        "event Claimed(address indexed user, uint256 amount)"
+      ];
+
+      const el = (id) => document.getElementById(id);
+      el("faucet").textContent = FAUCET_ADDRESS;
+
+      function log(msg) {
+        el("status").textContent = msg;
+      }
+
+      let provider, signer, faucet;
+
+      async function connect() {
+        if (!window.ethereum) {
+          log("MetaMask not found. Install MetaMask first.");
+          return;
+        }
+
+        provider = new ethers.BrowserProvider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+
+        signer = await provider.getSigner();
+        const addr = await signer.getAddress();
+
+        const net = await provider.getNetwork();
+        el("wallet").textContent = addr;
+        el("network").textContent = `${net.name} (chainId=${net.chainId})`;
+
+        faucet = new ethers.Contract(FAUCET_ADDRESS, FAUCET_ABI, signer);
+
+        el("claimBtn").disabled = false;
+        log("Connected. Ready to claim.");
+      }
+
+      async function claim() {
+        if (!faucet) return;
+
+        try {
+          log("Submitting claim transaction...");
+          const tx = await faucet.claim();
+          log(`Tx submitted: ${tx.hash}\nWaiting for confirmation...`);
+
+          const receipt = await tx.wait();
+          log(`✅ Claimed!\nTx: ${tx.hash}\nBlock: ${receipt.blockNumber}`);
+        } catch (e) {
+          const msg = e?.shortMessage || e?.message || "Unknown error";
+          log(`❌ Claim failed:\n${msg}`);
+        }
+      }
+
+      el("connectBtn").addEventListener("click", connect);
+      el("claimBtn").addEventListener("click", claim);
+    </script>
+  </body>
+</html>
