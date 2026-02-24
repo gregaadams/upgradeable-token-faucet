@@ -15,12 +15,12 @@ This project simulates real-world protocol operations including:
 ## 🔗 Sepolia Contracts (Verified)
 
 ### v1
-- MyToken: 0xF0f2573777a48F42FB05DAd424764dCD38DbFe6c  
-- TokenFaucet: 0x877eba320A874d7511D9e69d8D4090349Dad8005  
+- MyToken: https://sepolia.etherscan.io/address/0xF0f2573777a48F42FB05DAd424764dCD38DbFe6c  
+- TokenFaucet: https://sepolia.etherscan.io/address/0x877eba320A874d7511D9e69d8D4090349Dad8005  
 
 ### v2 (pause + rescue enabled)
-- MyToken: 0x7d152361B1b273128bA5823550085f0abfD64Ad3  
-- TokenFaucet: 0x841B719B6c48fDC436c63dbcF01a1896210C67b0  
+- MyToken: https://sepolia.etherscan.io/address/0x7d152361B1b273128bA5823550085f0abfD64Ad3  
+- TokenFaucet: https://sepolia.etherscan.io/address/0x841B719B6c48fDC436c63dbcF01a1896210C67b0  
 
 ---
 
