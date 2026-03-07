@@ -22,7 +22,7 @@ This project simulates real-world protocol operations including:
 - MyToken: https://sepolia.etherscan.io/address/0x7d152361B1b273128bA5823550085f0abfD64Ad3  
 - TokenFaucet: https://sepolia.etherscan.io/address/0x841B719B6c48fDC436c63dbcF01a1896210C67b0  
 
----
+---  
 
 ## 🛠️ Features Implemented
 
@@ -105,3 +105,19 @@ This project includes operational controls to mitigate upgrade abuse:
 - guardian pause  
 - time-gated rescue  
 - fee-based anti-Sybil claims
+
+## Architecture
+
+This project uses the EIP-1967 upgradeable proxy pattern.
+
+Proxy (EIP-1967)
+        │
+        ▼
+TokenFaucetUpgradeableV7
+        │
+        ▼
+TokenFaucetUpgradeableV8
+
+The proxy address remains constant while the implementation
+contract can be upgraded to add new functionality without
+losing stored state.

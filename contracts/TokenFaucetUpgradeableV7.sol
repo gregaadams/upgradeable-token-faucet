@@ -31,7 +31,7 @@ contract TokenFaucetUpgradeableV7 is TokenFaucetUpgradeableV6 {
     }
 
     // Owner can withdraw accumulated ETH fees from the proxy contract
-    function withdrawFees(address payable to) external onlyOwner {
+    function withdrawFees(address payable to) external virtual onlyOwner {
         require(to != address(0), "Bad to");
         (bool ok, ) = to.call{value: address(this).balance}("");
         require(ok, "Withdraw failed");

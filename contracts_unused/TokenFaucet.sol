@@ -22,6 +22,7 @@ contract TokenFaucet {
     event ConfigUpdated(uint256 claimAmount, uint256 cooldown);
     event Paused(bool paused);
     event Rescue(address indexed to, uint256 amount);
+    event FeesWithdrawn(address indexed to, uint256 amount);
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
@@ -71,4 +72,19 @@ contract TokenFaucet {
         require(token.transfer(to, amount), "Rescue transfer failed");
         emit Rescue(to, amount);
     }
+    function withdrawFees(address payable to)
+    external
+    onlyOwner
+    nonReentrant
+{
+    uint256 balance = address(this).balance;
+    require(balance > 0, "No ETH to withdraw");
+
+    (bool success, ) = to.call{value: balance}("");
+    require(success, "Transfer failed");
+
+    emit FeesWithdrawn(to, balance);
+}
+
+
 }
