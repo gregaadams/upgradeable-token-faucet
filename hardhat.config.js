@@ -9,6 +9,7 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.20",
+
   networks: {
     ...(SEPOLIA_URL && PRIVATE_KEY
       ? {
@@ -19,11 +20,13 @@ module.exports = {
         }
       : {}),
   },
-  etherscan: {
-    apiKey: {
-      sepolia: ETHERSCAN_API_KEY,
+
+  verify: {
+    etherscan: {
+      apiKey: ETHERSCAN_API_KEY,
     },
   },
+
   sourcify: {
     enabled: false,
   },
