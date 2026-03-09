@@ -1,0 +1,362 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0xA645208dd48878BA18c6B214D8923277C98EC3d3",
+      "txHash": "0x7eb4a895e9a0db39cba548adc5cb68bccc4073b8df6f93fef64f2d7c4312815b",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "433f6605b735eb4dfde182a13241d011b0839a891976b6cc1e2a8df8b661c360": {
+      "address": "0x1Dc3774fD1Cf52983b68EEab08FD19c7d356FEA7",
+      "txHash": "0x26f8124d8874ec6ac3e8b9ccfefc6b11b3af0c3899504e4b294a6f87b72296f7",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "token",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IERC20U)533",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:13"
+          },
+          {
+            "label": "claimAmount",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:14"
+          },
+          {
+            "label": "cooldown",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:15"
+          },
+          {
+            "label": "paused",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_bool",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:16"
+          },
+          {
+            "label": "lastClaimAt",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:18"
+          },
+          {
+            "label": "newValue",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV2",
+            "src": "contracts\\TokenFaucetUpgradeableV2.sol:10"
+          },
+          {
+            "label": "guardian",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_address",
+            "contract": "TokenFaucetUpgradeableV5",
+            "src": "contracts\\TokenFaucetUpgradeableV5.sol:7"
+          },
+          {
+            "label": "rescueTo",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_address",
+            "contract": "TokenFaucetUpgradeableV6",
+            "src": "contracts\\TokenFaucetUpgradeableV6.sol:7"
+          },
+          {
+            "label": "rescueArmedUntil",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV6",
+            "src": "contracts\\TokenFaucetUpgradeableV6.sol:8"
+          },
+          {
+            "label": "claimFeeWei",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV7",
+            "src": "contracts\\TokenFaucetUpgradeableV7.sol:7"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)105_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_contract(IERC20U)533": {
+            "label": "contract IERC20U",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "fd1f41d756f674031cd3f3857cdade241beeb24028e46513ec46da9b9e922dee": {
+      "address": "0x6959FC1B01B38B4493D09Df5E6AA1c5B17065354",
+      "txHash": "0x926ed520c890a63bff2ce1ffba3ad088a0b919b4bb0e51a357da82732eb97db0",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "token",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IERC20U)533",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:13"
+          },
+          {
+            "label": "claimAmount",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:14"
+          },
+          {
+            "label": "cooldown",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:15"
+          },
+          {
+            "label": "paused",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_bool",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:16"
+          },
+          {
+            "label": "lastClaimAt",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "TokenFaucetUpgradeable",
+            "src": "contracts\\TokenFaucetUpgradeable.sol:18"
+          },
+          {
+            "label": "newValue",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV2",
+            "src": "contracts\\TokenFaucetUpgradeableV2.sol:10"
+          },
+          {
+            "label": "guardian",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_address",
+            "contract": "TokenFaucetUpgradeableV5",
+            "src": "contracts\\TokenFaucetUpgradeableV5.sol:7"
+          },
+          {
+            "label": "rescueTo",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_address",
+            "contract": "TokenFaucetUpgradeableV6",
+            "src": "contracts\\TokenFaucetUpgradeableV6.sol:7"
+          },
+          {
+            "label": "rescueArmedUntil",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV6",
+            "src": "contracts\\TokenFaucetUpgradeableV6.sol:8"
+          },
+          {
+            "label": "claimFeeWei",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256",
+            "contract": "TokenFaucetUpgradeableV7",
+            "src": "contracts\\TokenFaucetUpgradeableV7.sol:7"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)105_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_contract(IERC20U)533": {
+            "label": "contract IERC20U",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
