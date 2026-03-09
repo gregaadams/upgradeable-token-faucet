@@ -21,9 +21,9 @@ module.exports = {
       : {}),
   },
 
-  verify: {
-    etherscan: {
-      apiKey: ETHERSCAN_API_KEY,
+  etherscan: {
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
     },
   },
 
