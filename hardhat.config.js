@@ -1,21 +1,26 @@
-require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-toolbox");
-//require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
+require("@openzeppelin/hardhat-upgrades");
 
-module.exports = {
-  defaultNetwork: "hardhat",
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
+
+const config = {
   solidity: "0.8.20",
+  defaultNetwork: "hardhat",
   networks: {
-    localhost: { url: "http://127.0.0.1:8545" },
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL,
-      accounts: [process.env.PRIVATE_KEY],
+    hardhat: {},
+    localhost: {
+      url: "http://127.0.0.1:8545",
     },
   },
-
-  // 👇 ADD THIS BLOCK HERE (same level as solidity + networks)
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
-  },
 };
+
+if (SEPOLIA_RPC_URL && PRIVATE_KEY) {
+  config.networks.sepolia = {
+    url: SEPOLIA_RPC_URL,
+    accounts: [PRIVATE_KEY],
+  };
+}
+
+module.exports = config;
